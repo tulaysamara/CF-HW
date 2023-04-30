@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Lottery {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter your name: ");
+		String name = input.nextLine();
+		
+		System.out.println("Hello " +name);
+		
+		System.out.println("Do you wish to play the lottery?");
+		String answer = input.nextLine();
+		if(answer != "y" || answer != "yes") {
+			System.out.println("Please come back another time to play.");
+			System.exit(0);
+		}
+	}
+
+}

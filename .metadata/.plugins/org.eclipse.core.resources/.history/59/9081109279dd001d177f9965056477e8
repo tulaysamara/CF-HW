@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class Lottery {
+
+	public static boolean checkForYes(String value) {
+		if (value == "y" || value == "yes") {
+			return true;
+		}
+
+		return false;
+
+	}
+	
+	public static int rangeCheck(int value, int minimum, int maximum) {
+		
+		int rangeSize = (maximum=minimum)+1;
+		while(value > maximum) {
+			value-=rangeSize;
+		}
+		while(value <minimum) {
+			value += rangeSize;
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter your name: ");
+		String name = input.nextLine();
+
+		System.out.println("Hello " + name);
+
+		System.out.println("Do you wish to play the lottery?");
+		String answer = input.nextLine();
+		if (!checkForYes(answer)) {
+			System.out.println("Please come back another time to play.");
+			System.exit(0);
+		}
+
+		System.out.println("What is your favorite pets name?");
+		String petName = input.nextLine();
+
+		System.out.println("What is your lucky number?");
+		int luckyNumber = Integer.parseInt(input.nextLine());
+
+		System.out.println("Do  you have a fav quarterback?");
+		String qbReply = input.nextLine();
+		Integer jerseyNumber = null;
+		if (checkForYes(qbReply)) {
+			System.out.println("Whats their jersey number?");
+			jerseyNumber = Integer.parseInt(input.nextLine());
+		}
+
+		int[] randomNumbers = new int[3];
+		for (int i = 0; i < randomNumbers.length; i++) {
+			randomNumbers[i] = (int) Math.floor(Math.random() * 65) + 1;
+
+			int magicBallBase = luckyNumber;
+			if (jerseyNumber != null) {
+				magicBallBase = jerseyNumber;
+			}
+			int magicBallNumber = magicBallBase * randomNumbers[0];
+
+			while (magicBallNumber > 75) {
+				magicBallNumber -= 75;
+			}
+
+			int[] lotteryBalls = new int[5];
+			lotteryBalls[0] = petName.charAt(2);
+			while (lotteryBalls[0] > 65) {
+				lotteryBalls[0] -= 65;
+
+			}
+
+		}
+	}
+
+}

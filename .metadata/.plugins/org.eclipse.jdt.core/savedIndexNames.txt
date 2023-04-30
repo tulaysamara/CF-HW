@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+/Users/tulaysamara/Desktop/CF HW/.metadata/.plugins/org.eclipse.jdt.core
+1026034551.index
+2921060748.index
+1865797976.index
